@@ -1,15 +1,25 @@
 class LSTNet(nn.Module):
     
-    def __init__(self):
+    def __init__(
+        self,
+        num_features = 5,
+        conv1_out_channels = 32,
+        conv1_kernel_height = 7,
+        recc1_out_channels = 64,
+        skip_steps = [4, 24],
+        skip_reccs_out_channels = [4, 4],
+        output_out_features = 1,
+        ar_window_size = 7
+                ):
         super(LSTNet, self).__init__()
-        self.num_features = 5
-        self.conv1_out_channels = 32 
-        self.conv1_kernel_height = 7
-        self.recc1_out_channels = 64 
-        self.skip_steps = [4, 24] 
-        self.skip_reccs_out_channels = [4, 4] 
-        self.output_out_features = 1
-        self.ar_window_size = 7
+        self.num_features = num_features
+        self.conv1_out_channels = conv1_out_channels
+        self.conv1_kernel_height = conv1_kernel_height
+        self.recc1_out_channels = recc1_out_channels
+        self.skip_steps = skip_steps
+        self.skip_reccs_out_channels = skip_reccs_out_channels
+        self.output_out_features = output_out_features
+        self.ar_window_size = ar_window_size
         self.dropout = nn.Dropout(p = 0.2)
        
         
